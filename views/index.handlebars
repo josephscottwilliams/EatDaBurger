@@ -1,0 +1,65 @@
+<div class="main-container-custom">
+  <h1>Burger Time!</h1>
+
+  <div class="row justify-content-md-center" id="row1" class="mx-auto">
+    <div class="card" class="col col-md-6" class="cardsHalf">
+
+      <div>
+        <h2>Burgers that are not devoured!</h2>
+      </div>
+
+      <div id="readyToEat" class="mx-auto">
+        <ul>
+          {{#each burgers}}
+          {{#unless devoured}}
+          {{> burgers/burger-block devoured=true}}
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card" class="col col-md-6" class="cardsHalf">
+      <div>
+        <h2>Burgers that are devoured!</h2>
+      </div>
+
+      <div class="mx-auto">
+        <ul>
+          {{#each burgers}}
+          {{#if devoured}}
+          {{> burgers/burger-block devoured=false}}
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+<div>
+  <div>
+    <h2>Make an order, Add a Burger</h2>
+    <form class="create-form">
+
+      <div class="form-group" style="text-align: center">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+  </div>
+
+  <div>
+    <div class="form-group" style="text-align: center">
+      <label for="devoured"></label><br>
+      {{!-- <input type="radio" name="devoured" value="1" checked> Add this one to the list!<br> --}}
+      <input type="radio" name="devoured" value="0"> Ready to Eat
+    </div>
+    <div style="text-align: center">
+      <button type="submit" style="text-align: center">Add Burger</button>
+    </div>
+    </form>
+  </div>
+</div>
+
+</div>
